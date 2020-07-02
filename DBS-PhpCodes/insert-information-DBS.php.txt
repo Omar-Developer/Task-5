@@ -1,0 +1,41 @@
+<?php
+
+require 'database.php';
+$conn = OpenCon();
+
+
+$movement = $_POST["Movement"];
+$direction = $_POST["Direction"];
+  
+
+
+
+ if( $direction =="F"){  
+  
+         
+          $sql = "INSERT INTO dbs (id,forward)values('number','$movement')";
+         mysqli_query($conn, $sql);
+}
+ 
+else if( $direction=="R"){  
+ 
+ $sql = "INSERT INTO RIT (id,right)values('number','$movement')";
+         mysqli_query($conn, $sql);
+       
+
+}
+
+else if( $direction =="L"){  
+ 
+ $sql = "INSERT INTO RIT (id,left)values('number','$movement')";
+         mysqli_query($conn, $sql);
+
+}
+
+
+
+CloseCon($conn);
+
+
+
+?>
