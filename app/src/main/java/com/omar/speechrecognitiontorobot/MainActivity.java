@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
 
     TextToSpeech textToSpeech;
 
-
+    private static String speech="";
     private static String direction= "N";
     private int length = -1;
     private static String movement="";
@@ -77,10 +77,14 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
 
                         movement=intFound;
                         textView.setText("The order was executed successfully");
+                        speech="I will follow the orders";
+                        textToSpeech.speak(speech, TextToSpeech.QUEUE_ADD, null);
                         InsertToDataBase();
                     } else {
                         Toast.makeText(getApplicationContext(), "Sorry, I didn't catch that! Please try again", Toast.LENGTH_LONG).show();
                         textView.setText("Sorry, I didn't catch that! Please try again");
+                        speech="Sorry, I didn't catch that! Please try again";
+                        textToSpeech.speak(speech, TextToSpeech.QUEUE_ADD, null);
                     }
                     break;
 
